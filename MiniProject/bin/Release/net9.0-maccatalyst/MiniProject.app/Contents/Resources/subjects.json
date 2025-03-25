@@ -1,0 +1,152 @@
+[
+  {
+    "idx": 1,
+    "courseCode": 12041111,
+    "subjectName": "วิชาการเขียนโปรแกรม",
+    "credit": 3,
+    "year": 2567,
+    "term": 1
+  },
+  {
+    "idx": 2,
+    "courseCode": 12042222,
+    "subjectName": "วิชาดนตรี",
+    "credit": 1,
+    "year": 2565,
+    "term": 3
+  },
+  {
+    "idx": 3,
+    "courseCode": 12042212,
+    "subjectName": "วิชาดนตรี 2",
+    "credit": 1,
+    "year": 2565,
+    "term": 2
+
+
+
+  },
+  {
+    "idx": 4,
+    "courseCode": 12043333,
+    "subjectName": "วิชาฟิสิกส์",
+    "credit": 3,
+    "year": 2566,
+    "term": 2
+
+
+
+  },
+  {
+    "idx": 5,
+    "courseCode": 12044444,
+    "subjectName": "วิชาเคมี",
+    "credit": 3,
+    "year": 2566,
+    "term": 2
+
+
+
+  },
+  {
+    "idx": 6,
+    "courseCode": 12045555,
+    "subjectName": "วิชาคณิตศาสตร์",
+    "credit": 4,
+    "year": 2567,
+    "term": 1
+
+
+
+  },
+  {
+    "idx": 7,
+    "courseCode": 12046666,
+    "subjectName": "วิชาภาษาอังกฤษ",
+    "credit": 2,
+    "year": 2566,
+    "term": 2
+  },
+  {
+    "idx": 8,
+    "courseCode": 12047777,
+    "subjectName": "วิชาภาษาไทย",
+    "credit": 2,
+    "year": 2565,
+    "term": 3
+
+
+
+  },
+  {
+    "idx": 9,
+    "courseCode": 12048888,
+    "subjectName": "วิชาศิลปะ",
+    "credit": 2,
+    "year": 2567,
+    "term": 1
+
+
+
+  },
+  {
+    "idx": 10,
+    "courseCode": 12049999,
+    "subjectName": "วิชาพลศึกษา",
+    "credit": 1,
+    "year": 2565,
+    "term": 2
+
+
+
+  },
+  {
+    "idx": 11,
+    "courseCode": 12041111,
+    "subjectName": "วิชาสังคมศึกษา",
+    "credit": 3,
+    "year": 2567,
+    "term": 1
+
+
+
+  },
+  {
+    "idx": 12,
+    "courseCode": 12042223,
+    "subjectName": "วิชาประวัติศาสตร์",
+    "credit": 3,
+    "year": 2566,
+    "term": 2
+
+
+
+  },
+  {
+    "idx": 13,
+    "courseCode": 12043334,
+    "subjectName": "วิชาเศรษฐศาสตร์",
+    "credit": 3,
+    "year": 2567,
+    "term": 3
+
+
+  },
+  {
+    "idx": 14,
+    "courseCode": 12044445,
+    "subjectName": "วิชาจิตวิทยา",
+    "credit": 2,
+    "year": 2565,
+    "term": 2
+  },
+  {
+    "idx": 15,
+    "courseCode": 12045556,
+    "subjectName": "วิชาสุขศึกษา",
+    "credit": 1,
+    "year": 2566,
+    "term": 1
+
+  }
+]

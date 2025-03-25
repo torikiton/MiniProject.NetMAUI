@@ -1,0 +1,83 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniProject.Pages.Profile"
+             xmlns:viewmodel="clr-namespace:MiniProject.ViewModel"
+             xmlns:model="clr-namespace:MiniProject.Model"
+             x:DataType="viewmodel:LoginViewModel"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto, Auto, *"> 
+        <FlexLayout Grid.Row="0" Wrap="Wrap" JustifyContent="SpaceBetween" Padding="30,20,30,20">
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="msulogo.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" VerticalOptions="Center"></Image>
+                <Label Text="จำลองการลงทะเบียนเรียน" FontSize="30" FontAttributes="Bold" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="20">
+                <Border Stroke="gray" StrokeThickness="1" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Label Text="ลงทะเบียน" Padding="10,5" FontSize="18" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToRegister"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Border BackgroundColor="#FFC4C4C4" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Label Text="โปรโฟล์" FontSize="18" Padding="10,5" TextColor="black" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToProfile"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Border Stroke="red" StrokeThickness="1" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Button Text="ออกจากระบบ" FontSize="18" TextColor="red" BackgroundColor="white"
+                         Padding="10,5" CornerRadius="10" Clicked="OnLogoutClicked"/>
+                 </Border>
+             </HorizontalStackLayout>
+        </FlexLayout>
+
+        <BoxView Grid.Row="1" HeightRequest="1" HorizontalOptions="Fill"/>
+
+        <FlexLayout Grid.Row="2" Direction="Column" AlignItems="Center" JustifyContent="Center">
+            <Border Grid.Row="2" StrokeThickness="0" BackgroundColor="White" Margin="30" HorizontalOptions="Center"
+                Shadow="{Shadow Radius=10, Opacity=0.1}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+               <VerticalStackLayout x:DataType="{x:Type model:User}" Spacing="15" Padding="30" WidthRequest="400">
+                    <Image Source="{Binding Profile}" HeightRequest="160" WidthRequest="160" Aspect="AspectFit" VerticalOptions="Center"/>
+                    <FlexLayout>
+                        <VerticalStackLayout>
+                            <Label Text="รหัสนิสิต" FontSize="20" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Id}" WidthRequest="170" TextColor="Gray" FontSize="18" IsReadOnly="True"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Margin="16,0,0,0">
+                            <Label Text="ชั้นปี" FontSize="20" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Year}" WidthRequest="60" TextColor="Gray" FontSize="18" IsReadOnly="True"/>
+                        </VerticalStackLayout>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween">
+                        <VerticalStackLayout>
+                            <Label Text="ชื่อ" FontSize="20" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Firstname}" TextColor="Gray" WidthRequest="140" FontSize="18" IsReadOnly="True"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <Label Text="นามสกุล" FontSize="20" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Lastname}" TextColor="Gray" WidthRequest="140" FontSize="18" IsReadOnly="True"/>
+                        </VerticalStackLayout>
+                    </FlexLayout>
+                    <Label Text="อีเมล" FontSize="20" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Email}" TextColor="Gray" FontSize="18" IsReadOnly="True"/>
+                    <Label Text="รหัสผ่าน" FontSize="20" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Password}" TextColor="Gray" FontSize="18" IsReadOnly="True" IsPassword="True"/>
+                </VerticalStackLayout>
+            </Border>
+        </FlexLayout>
+    </Grid>
+</ContentPage>

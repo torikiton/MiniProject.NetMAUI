@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniProject.Pages.RegistrationHistory"
+             xmlns:viewmodel="clr-namespace:MiniProject.ViewModel"
+             xmlns:model="clr-namespace:RegisteredSubject.Model"
+             x:DataType="viewmodel:RegistrationHistoryViewModel"
+             xmlns:converters="clr-namespace:MiniProject.Converters"
+             Shell.NavBarIsVisible="False">
+<ContentPage.Resources>
+    <ResourceDictionary>
+        <converters:TermToColorConverter x:Key="TermToColorConverter"/>
+        <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+    </ResourceDictionary>
+</ContentPage.Resources>
+    <Grid RowDefinitions="Auto, Auto, *">
+        <FlexLayout Grid.Row="0" Wrap="Wrap" JustifyContent="SpaceBetween" Padding="30,20,30,20">
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="msulogo.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" VerticalOptions="Center" />
+                <Label Text="จำลองการลงทะเบียนเรียน" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="20">
+                <Border BackgroundColor="#FFC4C4C4" StrokeThickness="1" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Label Text="ลงทะเบียน" Padding="10,5" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToRegister" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Border Stroke="Gray" StrokeThickness="1" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Label Text="โปรโฟล์" Padding="10,5" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToProfile" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+                <Border Stroke="Red" StrokeThickness="1" HeightRequest="50">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Button Text="ออกจากระบบ" FontSize="18" TextColor="Red" BackgroundColor="White"
+                            Padding="10,5" CornerRadius="10" Clicked="OnLogoutClicked" />
+                </Border>
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+        <BoxView Grid.Row="1" HeightRequest="1" HorizontalOptions="Fill" Color="LightGray" />
+
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, 1, *">
+            <VerticalStackLayout Grid.Column="0" Padding="20" Spacing="15">
+                <Border Stroke="Gray" StrokeThickness="1" HeightRequest="50" WidthRequest="200">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Button Text="ลงทะเบียนเรียน" TextColor="Black" FontSize="18" BackgroundColor="Transparent"
+                            Padding="10,5" CornerRadius="10" HorizontalOptions="Center" Clicked="GoToRegister" />
+                </Border>
+                <Border BackgroundColor="#FFC4C4C4" StrokeThickness="1" HeightRequest="50" WidthRequest="200">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Button Text="ข้อมูลการลงทะเบียนเรียน" TextColor="Black" FontSize="18" BackgroundColor="Transparent"
+                            Padding="10,5" CornerRadius="10" HorizontalOptions="Center" />
+                </Border>
+            </VerticalStackLayout>
+
+            <BoxView Grid.Column="1" WidthRequest="1" VerticalOptions="Fill" HorizontalOptions="Center" Color="LightGray" />
+
+            <ScrollView Grid.Column="2">
+                <VerticalStackLayout Padding="30,20,30,20" Spacing="15">
+                    <Label Text="ข้อมูลการลงทะเบียนเรียน" FontSize="24" FontAttributes="Bold"/>
+                    
+                    <VerticalStackLayout IsVisible="{Binding TermOptions.Count, Converter={StaticResource CountToVisibilityConverter}}">
+                        <Label Text="เลือกปีการศึกษา:" FontSize="16" Margin="0,10,0,5"/>
+                        <HorizontalStackLayout Spacing="10">
+                            <Button TextColor="black" Text="2566/1" 
+                                    Command="{Binding SelectTermCommand}" 
+                                    CommandParameter="2566/1" 
+                                    BackgroundColor="{Binding SelectedTerm, Converter={StaticResource TermToColorConverter}, ConverterParameter=2566/1}"/>
+                            <Button TextColor="black" Text="2565/2" 
+                                    Command="{Binding SelectTermCommand}" 
+                                    CommandParameter="2565/2" 
+                                    BackgroundColor="{Binding SelectedTerm, Converter={StaticResource TermToColorConverter}, ConverterParameter=2565/2}"/>
+                            <Button TextColor="black" Text="2565/1" 
+                                    Command="{Binding SelectTermCommand}" 
+                                    CommandParameter="2565/1" 
+                                    BackgroundColor="{Binding SelectedTerm, Converter={StaticResource TermToColorConverter}, ConverterParameter=2565/1}"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <BoxView Grid.Row="1" HeightRequest="1" HorizontalOptions="Fill" Color="LightGray" />
+                    <Label Text="{Binding TermDisplayText}" FontSize="20" FontAttributes="Bold" Margin="0,5,0,10" />
+
+                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="15" HasShadow="True">
+                        <Grid RowDefinitions="Auto, Auto, Auto">
+                            <Grid Grid.Row="0" ColumnDefinitions="0.15*,0.4*,0.15*,0.15*,0.15*" Padding="10" BackgroundColor="#F0F0F0">
+                                <Label Grid.Column="0" Text="รหัสวิชา" FontAttributes="Bold" FontSize="16" />
+                                <Label Grid.Column="1" Text="ชื่อวิชา" FontAttributes="Bold" FontSize="16" />
+                                <Label Grid.Column="2" Text="หน่วยกิต" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+                                <Label Grid.Column="3" Text="ปี" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+                                <Label Grid.Column="4" Text="ภาคเรียน" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+                            </Grid>
+
+                            <CollectionView Grid.Row="1" ItemsSource="{Binding RegisteredSubjects}" 
+                                            ItemsLayout="VerticalList" SelectionMode="None">
+                                <CollectionView.EmptyView>
+                                    <Label Text="ไม่พบข้อมูลการลงทะเบียนเรียน" HorizontalOptions="Center" />
+                                </CollectionView.EmptyView>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate x:DataType="model:RegisteredSubject">
+                                        <SwipeView IsVisible="{Binding CanWithdraw}">
+                                            <SwipeView.RightItems>
+                                                <SwipeItems>
+                                                    <SwipeItem Text="ถอนวิชา" 
+                                                            BackgroundColor="Orange"
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegistrationHistoryViewModel}}, Path=WithdrawSubjectCommand}"
+                                                            CommandParameter="{Binding .}" />
+                                                </SwipeItems>
+                                            </SwipeView.RightItems>
+                                            <Grid ColumnDefinitions="0.15*,0.4*,0.15*,0.15*,0.15*" Padding="10">
+                                                <Label Grid.Column="0" Text="{Binding CourseCode}" />
+                                                <Label Grid.Column="1" Text="{Binding SubjectName}" />
+                                                <Label Grid.Column="2" Text="{Binding Credit}" HorizontalOptions="Center" />
+                                                <Label Grid.Column="3" Text="{Binding Year}" HorizontalOptions="Center" />
+                                                <Label Grid.Column="4" Text="{Binding Term}" HorizontalOptions="Center" />
+                                            </Grid>
+                                        </SwipeView>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        
+                            <Label Grid.Row="2" Text="{Binding TotalCreditsText}" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
+                        </Grid>
+                    </Frame>
+                    <Label Grid.Row="2" Text="*ถอนวิชาแบบสไลด์วิชาด้านซ้ายและกดปุ่ม" TextColor="red" FontSize="14" FontAttributes="Bold" Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

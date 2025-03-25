@@ -1,0 +1,22 @@
+[
+  {
+    "idx": 1,
+    "id": 65011212100,
+    "profile": "https://img.freepik.com/premium-vector/one-kid-is-carrying-notepad-with-flat-design-style_995281-12374.jpg",
+    "firstname": "สมชาย",
+    "lastname": "ใจดี",
+    "email": "test1@gmail.com",
+    "password": "123",
+    "year": 1
+  },
+  {
+    "idx": 2,
+    "id": 65011212101,
+    "profile": "https://static.vecteezy.com/system/resources/thumbnails/017/293/217/small_2x/hand-drawing-cartoon-girl-cute-girl-drawing-for-profile-picture-png.png",
+    "firstname": "สมหญิง",
+    "lastname": "ใจดี",
+    "email": "test2@gmail.com",
+    "password": "123456",
+    "year": 2
+  }
+]

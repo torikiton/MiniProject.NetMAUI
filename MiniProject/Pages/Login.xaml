@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniProject.Pages.Login"
+             xmlns:viewmodel="clr-namespace:MiniProject.ViewModel"
+             x:DataType="viewmodel:LoginViewModel"
+             BackgroundColor="#f5f5f5"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto, Auto, *">
+        <FlexLayout Grid.Row="0" Padding="20,15" JustifyContent="SpaceBetween">
+            <HorizontalStackLayout Spacing="15">
+                <Image Source="msulogo.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" VerticalOptions="Center"/>
+                <Label Text="จำลองการลงทะเบียนเรียน" FontSize="26" FontAttributes="Bold" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </FlexLayout>
+        <BoxView Grid.Row="1" HeightRequest="1" HorizontalOptions="Fill"/>
+        <Grid Grid.Row="2" Padding="20">
+            <Border StrokeThickness="0" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" 
+                    Shadow="{Shadow Radius=10, Opacity=0.1}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="20" Padding="30" WidthRequest="350">
+                    <Image Source="msulogo.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="Center"/>
+                    <Label Text="เข้าสู่ระบบ" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#111827"/>
+                    
+                    <Entry Text="{Binding Username}" Placeholder="อีเมล" FontSize="18"/>
+                    <Entry Text="{Binding Password}" Placeholder="รหัสผ่าน" FontSize="18" IsPassword="True"/>
+                    <Button Command="{Binding LoginCommand}" Text="เข้าสู่ระบบ" FontSize="18" BackgroundColor="RoyalBlue" TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

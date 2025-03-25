@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/torikiton/Desktop/67_2/1204433CrossPlatformMobileApplicationDevelopment/MiniProject/MiniProject/obj/Release/net9.0-maccatalyst/Entitlements.xcent /Users/torikiton/Desktop/67_2/1204433CrossPlatformMobileApplicationDevelopment/MiniProject/MiniProject/bin/Release/net9.0-maccatalyst/MiniProject.app
